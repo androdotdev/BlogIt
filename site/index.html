@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BlogIt — Turn any page into a blog</title>
+    <meta
+      name="description"
+      content="BlogIt is a reader mode for Chrome that strips the ads, sidebars and pop-ups from any article, then sets it in a warm, quiet reading view you can save for later."
+    />
+    <meta name="theme-color" content="#f2ede2" />
+    <link rel="icon" href="assets/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/icon-128.png" />
+    <meta property="og:title" content="BlogIt — Turn any page into a blog" />
+    <meta
+      property="og:description"
+      content="A calm reader mode for any webpage. Warm themes, quiet typography, and a library that stays on your device."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/reader-light.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      // Set the theme before paint so the page never flashes the wrong colours.
+      try {
+        const stored = localStorage.getItem('blogit-site-theme')
+        const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.documentElement.dataset.theme = stored || system
+      } catch {}
+      document.documentElement.classList.add('js')
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="BlogIt home">
+          <img src="assets/icon-128.png" alt="" width="30" height="30" />
+          <span class="brand-name">BlogIt</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#difference">Why BlogIt</a>
+          <a href="#features">Features</a>
+          <a href="#themes">Themes</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4.2" />
+              <path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.2 14.4A8.2 8.2 0 0 1 9.6 3.8a8.4 8.4 0 1 0 10.6 10.6Z" />
+            </svg>
+          </button>
+          <a class="button button-primary button-small install-link" href="#install">Add to Chrome</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero -->
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> A calmer way to read</p>
+          <h1>Turn any page<br /><em>into a blog.</em></h1>
+          <p class="lede">
+            BlogIt strips the ads, sidebars, pop-ups, and clutter from the article you're reading —
+            then sets it in a warm, quiet reading view you can keep.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary install-link" href="#install">
+              Add to Chrome
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M4 10h11M11 5.5 15.5 10 11 14.5" />
+              </svg>
+            </a>
+            <a class="button button-ghost" href="#difference">See the difference</a>
+          </div>
+          <p class="micro">Free · No account · Everything stays on your device</p>
+        </div>
+
+        <div class="hero-visual" aria-label="BlogIt reader mode on a desktop screen">
+          <div class="browser">
+            <div class="browser-bar">
+              <span class="browser-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="browser-url">fieldnotes.example / the-quiet-craft</span>
+              <span class="browser-grip" aria-hidden="true"></span>
+            </div>
+            <img
+              data-shot="reader"
+              data-light="assets/reader-light.webp"
+              data-dark="assets/reader-dark.webp"
+              src="assets/reader-light.webp"
+              alt="An article shown in BlogIt's warm paper reader mode"
+              width="1440"
+              height="900"
+              fetchpriority="high"
+            />
+          </div>
+
+          <div class="floating-popup">
+            <img
+              data-shot="popup"
+              data-light="assets/popup-light.webp"
+              data-dark="assets/popup-dark.webp"
+              src="assets/popup-light.webp"
+              alt="The BlogIt popup with a saved article library"
+              width="372"
+              height="620"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="shortcut-pill" aria-hidden="true">
+            <kbd>Alt</kbd><span>+</span><kbd>R</kbd><span class="shortcut-label">anywhere</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="trust-row">
+        <span>Works on any article</span>
+        <span>Light &amp; dark, both warm</span>
+        <span>Saved locally, never uploaded</span>
+      </div>
+
+      <!-- Before / after -->
+      <section class="section" id="difference">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> The difference</p>
+          <h2>Same words. Less furniture.</h2>
+          <p class="section-lede">
+            The average article page asks for your attention a dozen times before the first
+            paragraph. BlogIt asks once.
+          </p>
+        </header>
+
+        <div class="compare reveal">
+          <figure class="compare-card">
+            <div class="compare-label"><span class="label-dot label-dot-muted"></span> Before</div>
+            <div class="compare-frame">
+              <img
+                src="assets/before.webp"
+                alt="A cluttered article page with a cookie banner, newsletter sign-up, and advertisements"
+                width="1440"
+                height="900"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>A cookie banner, two ads, a newsletter card, and a sidebar.</figcaption>
+          </figure>
+
+          <figure class="compare-card compare-card-after">
+            <div class="compare-label"><span class="label-dot"></span> After BlogIt</div>
+            <div class="compare-frame">
+              <img
+                data-shot="compare"
+                data-light="assets/reader-light.webp"
+                data-dark="assets/reader-dark.webp"
+                src="assets/reader-light.webp"
+                alt="The same article in BlogIt reader mode: just the story, set in a warm serif"
+                width="1440"
+                height="900"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>The story, a comfortable measure, and nothing else.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="section" id="features">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Features</p>
+          <h2>Built for the way you actually read</h2>
+          <p class="section-lede">
+            No dashboards, no feed, no recommendations. Just a better surface for the thing you
+            already came to read.
+          </p>
+        </header>
+
+        <div class="feature-grid">
+          <article class="feature reveal">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v16.5H6.5A2.5 2.5 0 0 0 4 22Z" />
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H19M8 7.5h7M8 11h5" />
+              </svg>
+            </span>
+            <h3>Reader mode anywhere</h3>
+            <p>
+              One click turns a cluttered article, essay, or blog post into a clean reading view.
+              Readability finds the story; BlogIt drops the rest.
+            </p>
+          </article>
+
+          <article class="feature reveal">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="8.5" />
+                <path d="M12 3.5a8.5 8.5 0 0 0 0 17Z" fill="currentColor" stroke="none" />
+              </svg>
+            </span>
+            <h3>Warm paper &amp; warm charcoal</h3>
+            <p>
+              Two themes tuned for long sessions. No stark white, no pitch black — just a page that
+              is easy on the eyes at noon and at midnight.
+            </p>
+          </article>
+
+          <article class="feature reveal">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 4.5h9.5A2.5 2.5 0 0 1 18 7v13.5l-6-3-6 3Z" />
+                <path d="M9 8.5h6M9 12h4" />
+              </svg>
+            </span>
+            <h3>A library that stays local</h3>
+            <p>
+              Save what you want to finish later. Articles live in your browser's extension
+              storage — not on a server, not in an account, not in the cloud.
+            </p>
+          </article>
+
+          <article class="feature reveal">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 7V5h14v2M12 5v14M8.5 19h7" />
+                <path d="M4 12h5M15 12h5" />
+              </svg>
+            </span>
+            <h3>Quiet typography</h3>
+            <p>
+              An editorial serif, a ~70-character measure, a gentle drop cap, and type that scales
+              with one tap. Small type should never be the price of admission.
+            </p>
+          </article>
+
+          <article class="feature reveal">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2.5" y="6" width="19" height="12" rx="2.5" />
+                <path d="M6.5 10h1.5M6.5 14h1.5M11 10h1.5M11 14h1.5M15.5 10h1.5M15.5 14h1.5" />
+              </svg>
+            </span>
+            <h3>Keyboard first</h3>
+            <p>
+              <kbd>Alt</kbd> + <kbd>R</kbd> toggles reader mode on any tab. <kbd>Esc</kbd> closes
+              it. <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>S</kbd> saves the piece. No mouse required.
+            </p>
+          </article>
+
+          <article class="feature reveal">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3.5 19 6v5.5c0 4.2-2.9 7.5-7 9-4.1-1.5-7-4.8-7-9V6Z" />
+                <path d="m9 12 2.2 2.2L15.5 10" />
+              </svg>
+            </span>
+            <h3>Nothing to sign up for</h3>
+            <p>
+              No account, no analytics, no sync. BlogIt only reads the page you are on, and it
+              keeps every saved article on your own machine.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Themes -->
+      <section class="section theme-section" id="themes">
+        <div class="theme-demo">
+          <div class="theme-copy reveal">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> Two themes</p>
+            <h2>Neither one glares.</h2>
+            <p class="section-lede">
+              Warm paper for daylight, warm charcoal for late nights. Both use the same terracotta
+              accent and the same calm typography — only the light changes.
+            </p>
+
+            <div class="theme-switch" role="group" aria-label="Preview a theme">
+              <button type="button" class="theme-choice is-active" data-theme-choice="light" aria-pressed="true">
+                <span class="swatch swatch-light"></span> Warm paper
+              </button>
+              <button type="button" class="theme-choice" data-theme-choice="dark" aria-pressed="false">
+                <span class="swatch swatch-dark"></span> Warm charcoal
+              </button>
+            </div>
+
+            <dl class="theme-facts">
+              <div><dt>Paper</dt><dd>#F2EDE2 · ink #2A241C</dd></div>
+              <div><dt>Charcoal</dt><dd>#15130F · ink #EEE6D8</dd></div>
+              <div><dt>Accent</dt><dd>Terracotta, tuned per theme</dd></div>
+            </dl>
+          </div>
+
+          <div class="theme-frame reveal">
+            <div class="browser browser-small">
+              <div class="browser-bar">
+                <span class="browser-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="browser-url" id="theme-url">blogit · warm paper</span>
+                <span class="browser-grip" aria-hidden="true"></span>
+              </div>
+              <img
+                id="theme-shot"
+                src="assets/reader-light.webp"
+                data-light="assets/reader-light.webp"
+                data-dark="assets/reader-dark.webp"
+                alt="The BlogIt reader in warm paper mode"
+                width="1440"
+                height="900"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section class="section" id="how">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> How it works</p>
+          <h2>Three seconds to a quieter page</h2>
+        </header>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-number">01</span>
+            <h3>Open any article</h3>
+            <p>A story, an essay, a long blog post — any normal page with words worth reading.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-number">02</span>
+            <h3>Click BlogIt — or press <kbd>Alt</kbd>+<kbd>R</kbd></h3>
+            <p>The overlay opens in place. The page underneath stays exactly where it was.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-number">03</span>
+            <h3>Read, resize, save</h3>
+            <p>Nudge the type, switch the theme, and save the piece to your local library.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Privacy -->
+      <section class="privacy" id="privacy">
+        <div class="privacy-inner">
+          <div class="privacy-copy reveal">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> Privacy</p>
+            <h2>Your reading list is nobody's business.</h2>
+            <p class="section-lede">
+              BlogIt has no backend, no account system, and no telemetry. It works entirely inside
+              your browser. <a href="privacy.html" style="text-decoration: underline">Read the full policy</a>.
+            </p>
+          </div>
+
+          <ul class="privacy-list reveal">
+            <li>
+              <span class="check">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10.5 3.2 3.2L15 7" /></svg>
+              </span>
+              <div>
+                <strong>Saved articles stay in <code>chrome.storage.local</code></strong>
+                <p>They never leave your device, and removing the extension removes them.</p>
+              </div>
+            </li>
+            <li>
+              <span class="check">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10.5 3.2 3.2L15 7" /></svg>
+              </span>
+              <div>
+                <strong>No accounts, analytics, or tracking</strong>
+                <p>Nothing to log in to, nothing to opt out of, nothing watching what you read.</p>
+              </div>
+            </li>
+            <li>
+              <span class="check">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10.5 3.2 3.2L15 7" /></svg>
+              </span>
+              <div>
+                <strong>Images load from their original sites</strong>
+                <p>BlogIt rewrites image paths but doesn't proxy or copy your reading.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section faq-section" id="faq">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Questions</p>
+          <h2>A few honest answers</h2>
+        </header>
+
+        <div class="faq reveal">
+          <details>
+            <summary>Does it work on every website?</summary>
+            <p>
+              On any normal <code>http</code>/<code>https</code> article page. Browser-internal
+              pages (<code>chrome://…</code>) and the Chrome Web Store can't run extensions, so
+              reader mode isn't available there. Pages without enough article text — dashboards,
+              feeds, search results — show a friendly message instead of a broken reader.
+            </p>
+          </details>
+          <details>
+            <summary>Where are my saved articles stored?</summary>
+            <p>
+              In Chrome's extension storage, under the key <code>blogit:saved</code>. They are
+              local to this browser profile. There is no sync and no server copy.
+            </p>
+          </details>
+          <details>
+            <summary>Can I change the keyboard shortcut?</summary>
+            <p>
+              Yes. Open <code>chrome://extensions/shortcuts</code> and set your own combination for
+              “Toggle BlogIt reader mode.”
+            </p>
+          </details>
+          <details>
+            <summary>Does it work in Edge, Brave, or Arc?</summary>
+            <p>
+              Any Chromium browser that supports Manifest V3 extensions should work. The store
+              listing is Chrome-first, but the build is the same.
+            </p>
+          </details>
+          <details>
+            <summary>Is it really free?</summary>
+            <p>
+              Yes. No trial, no account, no upsell. BlogIt is a small tool for reading, and it
+              stays that way.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Install -->
+      <section class="cta-section" id="install">
+        <div class="cta-card reveal">
+          <img class="cta-icon" src="assets/icon-128.png" alt="" width="64" height="64" />
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Ready when you are</p>
+          <h2>Keep the words.<br />Lose the noise.</h2>
+          <p class="cta-lede">
+            Add BlogIt to Chrome and turn the next thing you read into something you can actually
+            finish.
+          </p>
+          <a class="button button-primary button-large install-link" href="#install">
+            Add to Chrome
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M4 10h11M11 5.5 15.5 10 11 14.5" />
+            </svg>
+          </a>
+          <p class="cta-micro" id="install-note">
+            Free · No account · <kbd>Alt</kbd> + <kbd>R</kbd> after install
+          </p>
+
+          <details class="dev-note" data-dev-only>
+            <summary>Just built it? Load the unpacked version</summary>
+            <ol>
+              <li>Run <code>npm install &amp;&amp; npm run build</code> in the project.</li>
+              <li>Open <code>chrome://extensions</code> and turn on <strong>Developer mode</strong>.</li>
+              <li>Choose <strong>Load unpacked</strong> and select the <code>dist</code> folder.</li>
+              <li>Pin BlogIt, open an article, and press <kbd>Alt</kbd> + <kbd>R</kbd>.</li>
+            </ol>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="#top" aria-label="BlogIt home">
+            <img src="assets/icon-128.png" alt="" width="26" height="26" />
+            <span class="brand-name">BlogIt</span>
+          </a>
+          <p>Made for people who still read the web.</p>
+        </div>
+
+        <nav class="footer-links" aria-label="Footer">
+          <a href="#features">Features</a>
+          <a href="#themes">Themes</a>
+          <a href="#privacy">Privacy</a>
+          <a href="privacy.html">Privacy policy</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <p class="footer-note">© <span id="year">2026</span> BlogIt. No cookies were harmed.</p>
+      </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>

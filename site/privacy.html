@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BlogIt privacy policy</title>
+    <meta
+      name="description"
+      content="BlogIt privacy policy. The extension collects nothing, sends nothing, and keeps your saved articles on your device."
+    />
+    <meta name="theme-color" content="#f2ede2" />
+    <link rel="icon" href="assets/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      try {
+        const stored = localStorage.getItem('blogit-site-theme')
+        const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.documentElement.dataset.theme = stored || system
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="index.html" aria-label="BlogIt home">
+          <img src="assets/icon-128.png" alt="" width="30" height="30" />
+          <span class="brand-name">BlogIt</span>
+        </a>
+
+        <div class="nav-actions">
+          <a class="nav-back" href="index.html">Back to site</a>
+          <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4.2" />
+              <path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.2 14.4A8.2 8.2 0 0 1 9.6 3.8a8.4 8.4 0 1 0 10.6 10.6Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="legal" id="main">
+      <h1>BlogIt privacy policy</h1>
+      <p class="updated">Last updated November 26, 2026</p>
+
+      <p>
+        BlogIt is a Chrome extension that turns an article page into a clean reading view. This
+        policy explains what it does with your data. The short version: it collects nothing, sends
+        nothing, and keeps everything on your device.
+      </p>
+
+      <h2>What BlogIt does not do</h2>
+      <ul>
+        <li>It has no server, no account system, and no sync.</li>
+        <li>It has no analytics, telemetry, crash reporting, or advertising.</li>
+        <li>It does not collect, sell, share, or transfer your data to anyone.</li>
+        <li>It does not read your browsing history or run on pages you have not asked it to read.</li>
+      </ul>
+
+      <h2>What BlogIt reads</h2>
+      <p>
+        When you click the toolbar icon or press <code>Alt + R</code>, BlogIt reads the text and
+        images of the page in the current tab. It runs Mozilla Readability on a copy of the page in
+        your browser to find the article, then shows the result in an overlay. That processing
+        happens entirely on your device. The page content is not uploaded anywhere.
+      </p>
+
+      <h2>What BlogIt stores</h2>
+      <p>BlogIt stores two things, both in <code>chrome.storage.local</code> on your device:</p>
+      <ul>
+        <li>
+          Your settings: theme (light or dark) and text size.
+        </li>
+        <li>
+          Articles you choose to save: title, author, site name, excerpt, reading time, the cleaned
+          article text, the page address, and a lead image address.
+        </li>
+      </ul>
+      <p>
+        Articles are saved only when you press save. You can remove one at any time from the reader
+        or the popup, and the popup has a clear-all option. Uninstalling the extension deletes all
+        of it.
+      </p>
+
+      <h2>Images and links</h2>
+      <p>
+        Saved and displayed articles keep their original image addresses. When you read an article,
+        your browser loads those images from the original site's servers, the same way it would on
+        the original page. BlogIt asks the browser not to send a referrer with these requests. It
+        does not proxy or copy images. Links inside articles open in a new tab on the original site.
+      </p>
+
+      <h2>Permissions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Permission</th>
+            <th>Why BlogIt needs it</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>activeTab</code></td>
+            <td>
+              Lets BlogIt read the current tab, only after you click the icon or use the shortcut.
+              It gives no access to other tabs.
+            </td>
+          </tr>
+          <tr>
+            <td><code>scripting</code></td>
+            <td>Injects the reader script into that tab when you ask for reader mode.</td>
+          </tr>
+          <tr>
+            <td><code>storage</code></td>
+            <td>Keeps your settings and saved articles on your device.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>BlogIt requests no host permissions and has no always-on content scripts.</p>
+
+      <h2>Third parties</h2>
+      <p>
+        BlogIt includes open source libraries (Mozilla Readability, DOMPurify, marked, Turndown,
+        React, and Radix Themes) bundled inside the extension. It does not load code from remote
+        servers, and none of these libraries send data anywhere.
+      </p>
+
+      <h2>Children</h2>
+      <p>BlogIt collects no personal information from anyone, including children.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        If BlogIt ever changes how it handles data, this page will be updated first and the date
+        above will change. Any change that involves collecting or sending data would also be
+        described in the extension's store listing.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about this policy: <a href="mailto:rishabhmadhwaldev@gmail.com">rishabhmadhwaldev@gmail.com</a>.
+      </p>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="BlogIt home">
+            <img src="assets/icon-128.png" alt="" width="26" height="26" />
+            <span class="brand-name">BlogIt</span>
+          </a>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="index.html">Home</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+        <p class="footer-note">&copy; <span id="year">2026</span> BlogIt</p>
+      </div>
+    </footer>
+
+    <script>
+      const root = document.documentElement
+      const toggle = document.getElementById('theme-toggle')
+      const sync = () => {
+        const dark = root.dataset.theme === 'dark'
+        toggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme')
+        const meta = document.querySelector('meta[name="theme-color"]')
+        if (meta) meta.setAttribute('content', dark ? '#15130f' : '#f2ede2')
+      }
+      toggle.addEventListener('click', () => {
+        const next = root.dataset.theme === 'dark' ? 'light' : 'dark'
+        root.dataset.theme = next
+        try {
+          localStorage.setItem('blogit-site-theme', next)
+        } catch {}
+        sync()
+      })
+      sync()
+    </script>
+  </body>
+</html>
