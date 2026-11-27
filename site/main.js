@@ -1,10 +1,10 @@
 /* BlogIt landing page
  *
- * Set STORE_URL to your Chrome Web Store listing once it is published.
- * While it is empty, every "Add to Chrome" button scrolls to the install
- * section and the unpacked-build instructions stay visible.
+ * STORE_URL is the Chrome Web Store listing. Every "Add to Chrome" button
+ * points to it and the unpacked-build note is hidden. Set it to '' to go back
+ * to the scroll-to-install behavior.
  */
-const STORE_URL = ''
+const STORE_URL = 'https://chromewebstore.google.com/detail/dpkggdhfpbniijnibnbkmnjjocolkcnk'
 
 const root = document.documentElement
 const themeToggle = document.getElementById('theme-toggle')
